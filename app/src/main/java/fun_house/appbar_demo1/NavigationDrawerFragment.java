@@ -63,7 +63,7 @@ public class NavigationDrawerFragment extends Fragment {
 
     public static List<Information> getData (){
         List<Information> data = new ArrayList<>();
-        int [] icons = {R.drawable.ic_account_profile,R.drawable.ic_your_place,R.drawable.ic_settings,R.drawable.ic_log_out};
+        int [] icons = {R.drawable.ic_profile,R.drawable.ic_yourplace,R.drawable.ic_settings,R.drawable.ic_logout};
         String [] titles = {"Profile","Your Place","Settings","Log Out"};
         for (int i =0; i<icons.length&&i<titles.length;i++){
             Information current = new Information();
