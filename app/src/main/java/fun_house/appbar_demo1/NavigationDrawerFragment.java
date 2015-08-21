@@ -55,20 +55,20 @@ public class NavigationDrawerFragment extends Fragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.drawerList);
-        adapter = new MyAdapter(getActivity(),getData());
+        adapter = new MyAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return layout;
     }
 
-    public static List<Information> getData (){
+    public static List<Information> getData() {
         List<Information> data = new ArrayList<>();
-        int [] icons = {R.drawable.ic_profile,R.drawable.ic_yourplace,R.drawable.ic_settings,R.drawable.ic_logout};
-        String [] titles = {"Profile","Your Place","Settings","Log Out"};
-        for (int i =0; i<icons.length&&i<titles.length;i++){
+        int[] icons = {R.drawable.ic_profile, R.drawable.ic_yourplace, R.drawable.ic_settings, R.drawable.ic_logout};
+        String[] titles = {"Profile", "Your Place", "Settings", "Log Out"};
+        for (int i = 0; i < icons.length && i < titles.length; i++) {
             Information current = new Information();
             current.iconId = icons[i];
-            current.title=titles[i];
+            current.title = titles[i];
             data.add(current);
         }
         return data;
@@ -102,7 +102,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerLayout.post(new Runnable() {
             @Override
             public void run() {
-mDrawerToggle.syncState();
+                mDrawerToggle.syncState();
             }
         });
 

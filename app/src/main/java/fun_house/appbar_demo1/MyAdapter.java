@@ -41,6 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         Information current = data.get(position);
         holder.title.setText(current.title);
         holder.icon.setImageResource(current.iconId);
+        holder.navigationIcon = current.iconId;
     }
 
     @Override
@@ -51,6 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title;
         ImageView icon;
+        int navigationIcon;
 
         MyViewHolder(View itemView) {
             super(itemView);
@@ -61,12 +63,29 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         @Override
         public void onClick(View v) {
-           //can test use this Toast. in our app will click to go to another activity.
-           // Toast.makeText(v.getContext(), "Item clicked at " + getPosition(), Toast.LENGTH_SHORT).show();
+            switch (navigationIcon) {
+                case R.drawable.ic_profile:
+                    //replace the container with profile fragment
+                    Toast.makeText(v.getContext(), "profile clicked in navigation drawer", Toast.LENGTH_SHORT).show();
+                    break;
 
-            //click on icon and delete the single row view. mabye can use in vendor listView.
-            delete(getPosition());
+                case R.drawable.ic_yourplace:
+                    //replace container with yourplace fragment
+                    Toast.makeText(v.getContext(), "yourplace clicked in navigation drawer", Toast.LENGTH_SHORT).show();
+                    break;
+
+                case R.drawable.ic_settings:
+                    //replace container with settings fragment
+                    Toast.makeText(v.getContext(), "settings clicked in navigation drawer", Toast.LENGTH_SHORT).show();
+                    break;
+
+                case R.drawable.ic_logout:
+                    //logout from the servers etc, and replace with home screen fragment
+                    Toast.makeText(v.getContext(), "logout clicked in navigation drawer", Toast.LENGTH_SHORT).show();
+                    break;
+            }
         }
-    }
 
+    }
 }
+
